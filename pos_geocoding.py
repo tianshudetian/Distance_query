@@ -45,5 +45,8 @@ def distance_get(pos1, pos2):
     }
     result = request_url_get(url, params)
     result_json = parse_json(result)
-    distance = result_json['data']["paths"][0]["distance"]
+    try:
+        distance = result_json['data']["paths"][0]["distance"]
+    except:
+        distance = 0
     return distance
